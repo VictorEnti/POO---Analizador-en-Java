@@ -62,7 +62,7 @@ public class Main{
 
         Scanner Teclado = new Scanner(System.in);
 
-        // Entrada de datos para el segundo servidor
+        // Entrada de datos para el primer servidor
 
         System.out.println("Datos del 1er servidor");
 
@@ -84,6 +84,8 @@ public class Main{
         Teclado.nextLine();
 
         Servidor Servidor_1 = new Servidor();
+
+        // Asignacion de los valores recogidos por el codigo de arriba
 
         Servidor_1.nombre = Nombre;
         Servidor_1.origen = Origen;
@@ -112,15 +114,21 @@ public class Main{
 
         Servidor Servidor_2 = new Servidor();
 
+        // Asignacion de los valores recogidos por el codigo de arriba
+
         Servidor_2.nombre = Nombre;
         Servidor_2.origen = Origen;
         Servidor_2.critico = Criticidad;
         Servidor_2.intentosTotales = IntTotales;
         Servidor_2.intentosFallidos = IntFallidos;
 
+        // Reporte de seguridad
+
         System.out.println("Reporte de seguridad");
         Servidor_1.Mostrar_Resumen();
         Servidor_2.Mostrar_Resumen();
+
+        // Comparacion para establecer el nivel de prioridad
 
         if (!Servidor_1.Datos_Validos() || !Servidor_2.Datos_Validos()){
             System.out.println("Comparacion no disponible");
@@ -146,3 +154,18 @@ public class Main{
         }
     }
 }
+
+// Preguntas conceptuales
+//
+//1. ¿Por qué dos objetos de la misma clase pueden almacenar valores diferentes en sus atributos?
+//
+// Porque la clase solo especifica el tipo de variables del objeto, pero cada objeto tiene sus propios valores, independientemente de otro objeto de la misma clase
+//
+//2. ¿Qué diferencia existe entre Servidor b = a; y Servidor b = new Servidor();?
+//
+// Servidor b = a asigna al servidor b el mismo espacio de memoria que al servidor a
+// En cambio, servidor b = new Servidor() crea un objeto nuevo sin datos asignado
+//
+//3. ¿Por qué es importante comprobar datosValidos() antes de calcular el porcentaje?
+//
+// Es importante porque en el caso de ser invalidos se evitan divisiones que puedan dar errores (x/0 por ejemplo)
